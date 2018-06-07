@@ -1,0 +1,206 @@
+{
+  "id": 189,
+  "name": "flow189",
+  "nodes": [
+    {
+      "id": "root-node",
+      "name": "flow189",
+      "type": "root",
+      "connections": [
+        {
+          "default": "28fb"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Welcome to XYZ Travel Agency, Have you booked a ticket ?"
+      ],
+      "id": "28fb",
+      "connections": [
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "no"
+            ],
+            "then": "3bff"
+          }
+        },
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "destination"
+            ],
+            "then": "6b4f"
+          }
+        },
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "aircraft"
+            ],
+            "then": "5e80"
+          }
+        },
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "departure time",
+              "depart",
+              "departure"
+            ],
+            "then": "0218"
+          }
+        },
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "flight number"
+            ],
+            "then": "e514"
+          }
+        },
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "*"
+            ],
+            "pre": {
+              "varName": "bookingId",
+              "op": "eq",
+              "value": "null"
+            },
+            "then": "e41c"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "bookingId",
+      "msg": [
+        "what is your booking I.D.?\nHint: your booking I.D. will look like 96544829"
+      ],
+      "id": "e41c",
+      "connections": [
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "*"
+            ],
+            "then": "3ed3"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "fieldId": "bookingId"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Your flight number is {xyz.flightnumber}"
+      ],
+      "id": "e514",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Your flight departs at  {xyz.departuretime}"
+      ],
+      "id": "0218",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "You will be flying with {xyz.aircraft}"
+      ],
+      "id": "5e80",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "thanks {{xyz.fullName}}, I can help you find your flight number, kind of aircraft, destination and departure time"
+      ],
+      "id": "3ed3",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Your flight destination is {xyz.destination}"
+      ],
+      "id": "6b4f",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "please book a ticket and come back"
+      ],
+      "id": "3bff",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    }
+  ]
+}

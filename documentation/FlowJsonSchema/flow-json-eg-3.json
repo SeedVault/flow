@@ -1,0 +1,216 @@
+{
+  "id": 46,
+  "name": "flow46",
+  "nodes": [
+    {
+      "id": "root-node",
+      "name": "flow46",
+      "type": "root",
+      "connections": [
+        {
+          "default": "0549"
+        }
+      ]
+    },
+    {
+      "id": "0549",
+      "name": "welcomeMsg",
+      "connections": [
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "onboard"
+            ],
+            "then": "357e"
+          }
+        },
+        {
+          "if": {
+            "context": "welcomeMsg",
+            "op": "eq",
+            "value": [
+              "health"
+            ],
+            "then": "35f3"
+          }
+        },
+        {
+          "if": {
+            "context": "welcomeMsg",
+            "op": "eq",
+            "value": [
+              "*"
+            ],
+            "then": "0356"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "msg": [
+        "Hey <b> {userName} </b>"
+      ],
+      "type": "message",
+      "subType": "text"
+    },
+    {
+      "id": "0356",
+      "name": "testVideoCard",
+      "connections": [
+        {
+          "if": {
+            "context": "testVideoCard",
+            "op": "eq",
+            "value": [
+              "*"
+            ],
+            "then": "6b50"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "msg": [
+        "this is a video message "
+      ],
+      "type": "message",
+      "subType": "card",
+      "cardTitle": "card",
+      "cardSubtitle": "AV",
+      "cardImage": "https://static.example.io/img/interviewquestions.jpg",
+      "cardVideo": "https://static.example.io/interviewquestions001.mp4",
+      "cardProfile": "hd",
+      "cardAspect": "16:9",
+      "cardType": "video"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "companyName",
+      "msg": [
+        "what is your company name?"
+      ],
+      "fieldId": "company",
+      "formId": "companyId",
+      "id": "6b50",
+      "connections": [
+        {
+          "if": {
+            "context": "companyName",
+            "op": "eq",
+            "value": [
+              "*"
+            ],
+            "then": "883a"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "subType": "sendEmail",
+      "name": "",
+      "msg": [
+        "sending email"
+      ],
+      "info": {
+        "recipient": null,
+        "subject": null,
+        "body": null,
+        "formId": null
+      },
+      "id": "883a",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "what do you want to know about health?"
+      ],
+      "id": "35f3",
+      "connections": [
+        {
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "~bad_words"
+            ],
+            "then": "e0ec"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "badWordsUsage",
+      "msg": [
+        "you are using bad words"
+      ],
+      "id": "e0ec",
+      "connections": [
+        {
+          "if": {
+            "context": "sentimentAnalysis",
+            "op": "eq",
+            "value": [
+              "-4"
+            ],
+            "then": "7ebe"
+          }
+        },
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "sentiment is -4"
+      ],
+      "id": "7ebe",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "onboarding path"
+      ],
+      "id": "357e",
+      "connections": [
+        {
+          "default": "end"
+        }
+      ]
+    }
+  ],
+  "forms": [
+    "companyId"
+  ]
+}
