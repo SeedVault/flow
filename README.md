@@ -1,11 +1,12 @@
 # .FLOW
 Part of the SEED token project. This is a sneak preview - there is more to come.
+See [the Wiki](https://github.com/SeedVault/flow/wiki) for more information.
 
 ## About the SEED Token Project
 SEED democratizes AI by offering an open and independent alternative to the monopolies of a few large corporations that currently control conversational user interfaces (CUIs) and AI technologies. SEED's licensed, monetized open-source platform for bots on blockchain supports collaboration and creative compensation that will exceed the proprietary deployments from industry giants. We are also giving users back control of their personal data. Find out more about the SEED Token project at [seedtoken.io](https://seedtoken.io). See the Connect section at the end for contact info.
 
 ## Sneak Preview
-From day one, Botanic (through Seed Vault Ltd.) will ‘seed’ the SEED Network with free to use IP and work to compensate existing open source CUI communities to do the same in order to grow the platform’s usefulness. See [more information here] (https://wikipage.com)
+From day one, Botanic (through Seed Vault Ltd.) will ‘seed’ the SEED Network with free to use IP and work to compensate existing open source CUI communities to do the same in order to grow the platform’s usefulness.
 This repository is just the beginning of a process, in which we will open source more parts of the otherwise proprietary bot framework/CUI toolkit and many other bot and AI components. 
 
 ## Why .Flow?
