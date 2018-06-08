@@ -1,18 +1,22 @@
-###
-These files are made available to you on an as-is and restricted basis, and may only be redistributed or sold to any third party as expressly indicated in the Terms of Use for Seed Vault.
-###
-Seed Vault Code (c) Botanic Technologies, Inc. Used under license.
-###
+# .FLOW
+Part of the SEED token project. This is a sneak preview - there is more to come.
 
-## why .Flow?
+## About the SEED Token Project
+SEED democratizes AI by offering an open and independent alternative to the monopolies of a few large corporations that currently control conversational user interfaces (CUIs) and AI technologies. SEED's licensed, monetized open-source platform for bots on blockchain supports collaboration and creative compensation that will exceed the proprietary deployments from industry giants. We are also giving users back control of their personal data. Find out more about the SEED Token project at [seedtoken.io](https://seedtoken.io). See the Connect section at the end for contact info.
+
+## Sneak Preview
+From day one, Botanic (through Seed Vault Ltd.) will ‘seed’ the SEED Network with free to use IP and work to compensate existing open source CUI communities to do the same in order to grow the platform’s usefulness. See [more information here] (https://wikipage.com)
+This repository is just the beginning of a process, in which we will open source more parts of the otherwise proprietary bot framework/CUI toolkit and many other bot and AI components. 
+
+## Why .Flow?
 - to design and build how a conversation to be between user and bot, is built using node and path as building blocks, where a node represent either a bot message or user input, path represent a possible way from current node to a future node. 
 
 
-## why should one care about it?
+## Why should one care about it?
 - any one who wishes to come up with a bot, which has some task in it, knows how to execute it in a conversation model, that person can utilize this in representing the conversation in a flow.
 
 
-## what is a task? 
+## What is a task? 
 - task is something like a purpose, it can be related to anything, probably some humorous conversation, or some logical steps to do some task (for eg., transfer money from an account to another account), or some tutor (for eg., a language tutor) etc, an example is given at the end, please have a look for better understanding
 
 
@@ -37,11 +41,11 @@ Seed Vault Code (c) Botanic Technologies, Inc. Used under license.
 - a flow engine, which usually can be built using any language of choice, but as of now Botanic has chosen ChatScript and PHP in writing it. ChatScipt is a rule-based engine, where rules are created by human writers in program scripts through a process called dialog flow scripting
 
 
-## what does it give?
+## What does it give?
 - a response that need to be shown to the end user, which is set by the bot developer while creating the flow
 
 
-## what does it expect to continue further?
+## What does it expect to continue further?
 - user input, once it is received, it will processes it, after understanding the user input, it decides what need to be done next
 
 
