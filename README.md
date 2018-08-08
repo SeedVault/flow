@@ -9,6 +9,9 @@ SEED democratizes AI by offering an open and independent alternative to the mono
 From day one, Botanic (through Seed Vault Ltd.) will ‘seed’ the SEED Network with free to use IP and work to compensate existing open source CUI communities to do the same in order to grow the platform’s usefulness.
 This repository is just the beginning of a process, in which we will open source more parts of the otherwise proprietary bot framework/CUI toolkit and many other bot and AI components. 
 
+## What is .Flow?
+- The .FLOW project is designed to set a unifying standard for bot volleys that might be written in several different languages
+
 ## Why .Flow?
 - to design and build how a conversation to be between user and bot, is built using node and path as building blocks, where a node represent either a bot message or user input, path represent a possible way from current node to a future node. 
 
