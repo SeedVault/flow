@@ -1,0 +1,316 @@
+{
+  "id": "root",
+  "name": "Main bot flow - Weather report demo",
+  "nodes": [
+    {
+      "id": "mainnode",
+      "name": "Main nnode",
+      "global": true,
+      "paths": [
+        {
+          "id": "weatherreportintent",
+          "name": "Weather report intent match",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [
+            {
+              "$dialogFlowIntentMatch": [
+                "weatherreportintent",
+                {
+                  "$userInput": []
+                }
+              ]
+            }
+          ],
+          "responses": [
+            {
+              "$store": [
+                "location",
+                {
+                  "$canonicalLocation": [
+                    {
+                      "city": "{geo-city}",
+                      "state-us": "{geo-state-us}",
+                      "country": "{geo-country}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$goto": "weatherreport"
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    },
+    {
+      "id": "weatherreport",
+      "name": "Weather report",
+      "global": false,
+      "paths": [
+        {
+          "id": "weatherreport",
+          "name": "Weather report",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [],
+          "responses": [
+            {
+              "$weather": [
+                "{location}",
+                "{date}"
+              ]
+            }
+          ],
+          "exceptions": [
+            {
+              "exceptions": {
+                "MISSING_LOCATION": [
+                  {
+                    "$callNode": "missinglocation"
+                  },
+                  {
+                    "$goto": "weatherreport"
+                  }
+                ],
+                "AMBIGUOUS_LOCATION": [
+                  {
+                    "$callNode": "ambiguouslocation"
+                  },
+                  {
+                    "$goto": "weatherreport"
+                  }
+                ],
+                "MISSING_DATE": [
+                  {
+                    "$callNode": "missingdate"
+                  },
+                  {
+                    "$goto": "weatherreport"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missingdate",
+      "name": "Ask for date",
+      "global": false,
+      "paths": [
+        {
+          "id": "missingdatepath",
+          "name": "Ask for date",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [],
+          "responses": [
+            {
+              "$text": "Please enter what day you want the weater report"
+            },
+            {
+              "$callNode": "capturedate"
+            },
+            {
+              "$return": []
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    },
+    {
+      "id": "missinglocation",
+      "name": "Ask for location",
+      "global": false,
+      "paths": [
+        {
+          "id": "missinglocationpath",
+          "name": "Ask for a location",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [],
+          "responses": [
+            {
+              "$text": "Please enter your location"
+            },
+            {
+              "$callNode": "capturelocation"
+            },
+            {
+              "$return": []
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    },
+    {
+      "id": "notrecognizablelocation",
+      "name": "Ask for a valid location",
+      "global": false,
+      "paths": [
+        {
+          "id": "notrecognizablelocationpath",
+          "name": "Ask for a valid location",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [],
+          "responses": [
+            {
+              "$text": "\"{{location.shortText}}\" is not recognized as a valid location. Please enter a different location"
+            },
+            {
+              "$callNode": "capturelocation"
+            },
+            {
+              "$callNode": "weatherreport"
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    },
+    {
+      "id": "ambigouoslocation",
+      "name": "Ambiguous location",
+      "global": false,
+      "paths": [
+        {
+          "id": "askcountry",
+          "name": "Ask coutry",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [],
+          "responses": [
+            {
+              "$text": "Please enter a more detailed location (city and country)"
+            },
+            {
+              "$callNode": "capturelocation"
+            },
+            {
+              "$callNode": "weatherreport"
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    },
+    {
+      "id": "capturelocation",
+      "name": "Capture location",
+      "global": false,
+      "paths": [
+        {
+          "id": "capturelocationpath",
+          "name": "Capture location",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [
+            {
+              "$and": [
+                {
+                  "$regexMatch": [
+                    "(?:my (?:current )?location is )?(?:I'(?:m|am) )?(?:currently )?(?:located )?(?:in )?(?P<location>.*)",
+                    {
+                      "$userInput": []
+                    }
+                  ]
+                },
+                {
+                  "$canonicalLocation": [
+                    {
+                      "$variable": [
+                        "location"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "responses": [
+            {
+              "$text": [
+                "{location.shortText}! What a nice place!"
+              ]
+            },
+            {
+              "$return": []
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    },
+    {
+      "id": "capturedate",
+      "name": "Capture date",
+      "global": false,
+      "paths": [
+        {
+          "id": "capturedatepath",
+          "name": "Capture date",
+          "forceRun": false,
+          "permissions": [],
+          "conditions": [
+            {
+              "$dialogFlowIntentMatch": [
+                "dateintent",
+                {
+                  "$userInput": []
+                }
+              ]
+            }
+          ],
+          "responses": [
+            {
+              "$return": []
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dateintent",
+      "list": [
+        {
+          "text": "08/10/2018"
+        },
+        {
+          "text": "2 dys ago"
+        },
+        {
+          "text": "in 30 days"
+        },
+        {
+          "text": "in 5 days"
+        },
+        {
+          "text": "yesterday"
+        },
+        {
+          "text": "1st june"
+        },
+        {
+          "text": "the daty after tomorrow"
+        },
+        {
+          "text": "tomorrow"
+        },
+        {
+          "text": "today"
+        }
+      ]
+    }
+  ],
+  "utterances": []
+}

@@ -1,0 +1,632 @@
+{
+  "id": 368,
+  "name": "flow368",
+  "nodes": [
+    {
+      "id": "root-node",
+      "name": "flow368",
+      "type": "root",
+      "connections": [
+        {
+          "default": "c4c0"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "Welcome-1",
+      "msg": [
+        "Have questions? This is @SupportBot. What kind of questions do you have?"
+      ],
+      "connections": [
+        {
+          "name": "W-Links",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "I want a directory of links"
+            ],
+            "then": "e767"
+          },
+          "isButton": false
+        },
+        {
+          "name": "W-course",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "Questions about the course site"
+            ],
+            "then": "2b24"
+          },
+          "isButton": true
+        },
+        {
+          "name": "W-Content",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "Questions about the content"
+            ],
+            "then": "982e"
+          },
+          "isButton": true
+        },
+        {
+          "name": "W-something",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "Questions about something else"
+            ],
+            "then": "4ac5"
+          },
+          "isButton": true
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "c4c0"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "You have a question about the member's area? (The course website)"
+      ],
+      "fieldId": "This is a test",
+      "formId": "Form Test 1",
+      "connections": [
+        {
+          "name": "I can't unlock the next lesson",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "I can't unlock the next lesson"
+            ],
+            "then": "fc20"
+          },
+          "isButton": true
+        },
+        {
+          "name": "I forgot my username/password",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "I forgot my username/password"
+            ],
+            "then": "f4bb"
+          },
+          "isButton": true
+        },
+        {
+          "name": "What is the Member's Area?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "What is the Member's Area?"
+            ],
+            "then": "1789"
+          },
+          "isButton": true
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "2b24"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Are any of these questions helpful?"
+      ],
+      "connections": [
+        {
+          "name": "How do I succeed or fail in XYZ?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "How do I succeed or fail in XYZ?"
+            ],
+            "then": "e0b0"
+          },
+          "isButton": true
+        },
+        {
+          "name": "What's homework/peer review about?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "What's homework/peer review about?"
+            ],
+            "then": "7f6d"
+          },
+          "isButton": true
+        },
+        {
+          "name": "What's the syllabus?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "What's the syllabus?"
+            ],
+            "then": "be50"
+          },
+          "isButton": true
+        },
+        {
+          "name": "What is Analog, Antilog, Leap of Faith?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "What is Analog, Antilog, Leap of Faith"
+            ],
+            "then": "4f06"
+          },
+          "isButton": true
+        },
+        {
+          "name": "What's XYZ about?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "What's XYZ about?"
+            ],
+            "then": "7643"
+          },
+          "isButton": true
+        },
+        {
+          "name": "What are the 5 business models?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "What are the 5 business models?"
+            ],
+            "then": "e31a"
+          },
+          "isButton": true
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "982e"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Here you go!\nMember's Area: https://example.net/login\nCalendar: https://example.net/calendar\nResources: https://example.net/resources\nXYZ Tutorial: https://example.net/xyzhelp\nHomework Help: https://example.net/homeworkhelp\nPeer Support Help: https://example.net/peersupporthelp\nContact us: https://example.net/contactus\nQ&A Call: https://example.net/livecall\n\nWas this what you were looking for?"
+      ],
+      "connections": [
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "~yes"
+            ],
+            "then": "0da4"
+          },
+          "isButton": false
+        },
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "~no"
+            ],
+            "then": "end"
+          },
+          "isButton": false
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "e767"
+    },
+    {
+      "type": "flowId",
+      "name": "",
+      "msg": [],
+      "connections": [
+        {
+          "default": "c4c0"
+        }
+      ],
+      "id": "0da4"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "The member's area is where we host all the videos, resources, homework and peer reviews. You can visit the member's area here: <a href=\"https://example.net/login\">https://example.net/login </a>."
+      ],
+      "connections": [
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "*"
+            ],
+            "then": "8eff"
+          },
+          "isButton": false
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "1789"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "No worries! Visit the <a href=\"https://example.net/wp-login.php?action=lostpassword\">forgot-password</a> to reset it. You'll get an email with a special link inside. If you're still having trouble, send an email to xyz@learn.example.com and we'll help you out!"
+      ],
+      "connections": [
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "*"
+            ],
+            "then": "c5c4"
+          },
+          "isButton": false
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "f4bb"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Make sure you do the following:\n1) First, double check if you marked the lesson complete. \n(gif of how to mark the lesson complete)\n2) If you're still stuck, make sure you mark it complete, then do a  hard-refresh. (How to link)\n\nDoes that work?"
+      ],
+      "connections": [
+        {
+          "default": "end",
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "~no"
+            ],
+            "then": "be3d"
+          },
+          "isButton": false
+        },
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "~yes"
+            ],
+            "then": "0a7e"
+          },
+          "isButton": false
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "fc20"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Reach out to: https://example.net/contactus\nWe'll access your account and follow-up. :-)"
+      ],
+      "connections": [
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "*"
+            ],
+            "then": "4ab0"
+          },
+          "isButton": false
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "be3d"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Excellent! :-)"
+      ],
+      "connections": [
+        {
+          "name": "",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "*"
+            ],
+            "then": "4a77"
+          },
+          "isButton": false
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "0a7e"
+    },
+    {
+      "type": "flowId",
+      "name": "",
+      "msg": [],
+      "connections": [
+        {
+          "default": "c4c0"
+        }
+      ],
+      "id": "c5c4"
+    },
+    {
+      "type": "flowId",
+      "name": "",
+      "msg": [],
+      "connections": [
+        {
+          "default": "c4c0"
+        }
+      ],
+      "id": "4a77"
+    },
+    {
+      "type": "flowId",
+      "name": "",
+      "msg": [],
+      "connections": [
+        {
+          "default": "c4c0"
+        }
+      ],
+      "id": "4ab0"
+    },
+    {
+      "type": "flowId",
+      "name": "",
+      "msg": [],
+      "connections": [
+        {
+          "default": "c4c0"
+        }
+      ],
+      "id": "8eff"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "In business, there are no right answers, only plausible answers. We are not grading you. Instead, we are working your 'business muscle'. \n\t\nWe ask that you push yourself to try. The instructors, your peers, and the rest of the Example team is working together with you to get you to success. \n\t\nThe only way to fail is if you didn't submit your homework on time, or if you fail to provide 3 peer reviews prior to the due date."
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "e0b0"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "For Module 1, we tests your understanding of the 5 business models (Revenue, Gross Margin, Working Capital, Operating, and Financing Model). You can select a company to review. Your peers will then provide feedback on your assumptions. \n\t\nFor Module 2, we'll test your understanding of Analogs, Antilogs, and Leaps of Faith using companies selected at RANDOM. Those companies are (XYZ, LMN, OPQ) Your peers will then review your work and provide feedback.\n\t\nFor Module 3, you will use everything you learn in the course and apply it to your own business. Your peers will read your business plan, and provide feedback."
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "7f6d"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "You can download the Business Ignition Syllabus here: [link to PDF file]"
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "be50"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Analogs = \nAntilogs = \nLeaps of Faith = \n\t\nWe cover Analogs, Antilogs, and Leaps of Faith in Module 2: \"Title\", in Lessons 2, 3, and 4. \n\t\nVisit [resource page] for a more detailed explanation about each one."
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "4f06"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "The Business Ignition Bootcamp is a 3-week long training, with instructors Danny Iny and Lizzie Merritt. You can find more information about the course at [link]\n\t\nThere are due dates, which you can find more information about at: [link]"
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "7643"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "In short terms, The five business models are:\nRevenue Model: Your strategy for generating money\nGross Margin Model: How much money you make from each sale\nWorking Capital Model: The time between when you make money to when your expenses are due.\nOperating model: The cost to run your business\nFinancing model: How you fund your business\n\nWe cover the five Business models in Module 1, in Lessons 2 & 3.\n\nVisit [resource page] for a more detailed explanation about each one."
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "e31a"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "What question do you have?"
+      ],
+      "connections": [
+        {
+          "name": "How do you use XYZ?",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "How do you use XYZ?"
+            ],
+            "then": "4ecb"
+          },
+          "isButton": true
+        },
+        {
+          "name": "There's a tech issue",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "There's a tech issue"
+            ],
+            "then": "8494"
+          },
+          "isButton": true
+        },
+        {
+          "name": "I want to email someone at Example",
+          "if": {
+            "context": "userInput",
+            "op": "pattern",
+            "value": [
+              "I want to email someone at Example"
+            ],
+            "then": "b068"
+          },
+          "isButton": true
+        },
+        {
+          "default": "end"
+        }
+      ],
+      "id": "4ac5"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "Revisit the tutorial at: [link]\n\nYou can also follow XYZ's Getting Started guide at https://example.help/hc/en-us/articles/115004071768"
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "4ecb"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "We have a process for solving tech issues. \n\t\nContact us at [link], and provide a screenshot, and we're help you out!"
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "8494"
+    },
+    {
+      "type": "message",
+      "subType": "text",
+      "name": "",
+      "msg": [
+        "The best support is your peers. If you're still stuck, join us during the live Q&A on Fridays. The link to join is at: [link]\n\t\nIf there's something else, you can contact us at [link]."
+      ],
+      "connections": [
+        {
+          "default": "end"
+        }
+      ],
+      "id": "b068"
+    }
+  ],
+  "forms": [
+    "New Form",
+    "Form Test 1"
+  ]
+}
