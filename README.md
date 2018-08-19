@@ -38,7 +38,7 @@ This repository is just the beginning of a process, in which we will open source
 
 
 ## Who consumes it?
-- a flow engine, which usually can be built using any language of choice, but as of now Botanic has chosen ChatScript and PHP in writing it. ChatScipt is a rule-based engine, where rules are created by human writers in program scripts through a process called dialog flow scripting
+- a flow engine, which usually can be built using any language of choice, but as of now Botanic has chosen Python and PHP in writing it.
 
 
 ## What does it give?
