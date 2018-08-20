@@ -54,7 +54,7 @@ This repository is just the beginning of a process, in which we will open source
 ## .Flow v2.0 - Introduction
 
 This document is a draft specification for a new .Flow specification standard version 2.0
-.Flow is a domain-specific abstract syntax graph to build conversational bots executed by BBot bot engine. 
+.Flow is a domain-specific language to build conversational bots executed by BBot bot engine. 
 This document explains in detail both the syntax and semantics of .Flow and has a full reference for all operations and functions to be supported by BBot.
 
 ##### Changes from previous version
