@@ -460,10 +460,8 @@ These functions return information about the user set by the channel. If the cha
 
 Authentication is handled by OAuth. When the user wants to reach a secured flow, they will be asked to follow a link which leads to the user authentication based on OAuth.
 
-- {"$login": [*userName, password, noCredentials*]:	Checks user and try to login with provided password. Returns true if authorized.
-	- username: (string): User name 
-	- password: (string): Password
-	- noCredentials: (boolean. optional. default is false) True will log the user in with no password asked. User will not be checked against OAuth service. This provides a way for the channel to handle authentication by itself. 
+- {"$login": [*noAuth*]:	Provides a link to the user to do authentification with OAuth. Returns true if authorized.
+	- noAuth: (boolean. optional. default is false) True will log the user in with no authentification needed. User will not be checked against OAuth service. This provides a way for the channel to handle authentication by itself. 
 - {"$isLogged: []}: Returns true if user is already logged.
 
 ### User session variables
