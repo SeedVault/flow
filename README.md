@@ -99,13 +99,15 @@ This is the root object of the bot flowchart. It contains data about the bot flo
 ```
 {
    "id": "73324811db2671478394690a75ab",
-   "name": "Main bot flow",
+   "name": "Mainbotflow",
+   "description": "This is the main flow", 
    "nodes": [],
    "entities": [],
    "utterances": []
 }
 ```
-- name: (string) Unique flow id
+- id: (string) Unique flow if
+- name: (string) Friendly name
 - description: (string) Friendly descriptive flow name
 - nodes: (list) List of volleys nodes which defines the bot flowchart
 - entities: (list) Defines entities. See entities section.
@@ -117,14 +119,16 @@ This is the root object of the bot flowchart. It contains data about the bot flo
 A node object contains a group of paths that the conversation bot can follow based on the conditionals defined on each path. This sets the conversation context.
 ```
 {
-    "name": "ec465bade6ba2959f0fee3bae6a",
+    "id": "ec465bade6ba2959f0fee3bae6a",
+    "name": "welcome",
     "description": "Welcome message",
     "contexts": ["global", "customcontext1"],
     "paths": []
 }
 ```
 (@TODO remove global attr for a conventional id = 'globalNode'?)
-- name: (string) Unique node id
+- id: (string) Unique node id. This is the id used by function $goto.
+- name: (string) Friendly name
 - description: (string) Friendly descriptive name
 - contexts: (list of strings. optional) List of node contexts. Each path will define a context is matched. In a follow-up conversation there will be an internal context so the engine looks first for nodes in that context. This internal context is deleted on each volley. If a path defines a custom context the engine will look first at the internal context and then to the custom context. This custom contexts expires in 5 minutes. Also there is an special context "global" which is a no match fallbackc context where the engine will look for nodes when there is no match in the internal and other custom nodes. Use global context with caution and try not to define too broad intents on its paths
 - paths: (list) List of paths to be tested first on this node. It can be an user intent test if intent match functions are used in the conditions attribute, or any criteria test. If no match is found here, the bot engine will test the criteria conditions on volley with attribute "global" set true. That volley will contain all paths which the bot will always be ready to follow if none of the current volley paths match.
@@ -136,7 +140,8 @@ This object defines the volley conditional/response.
 
 {
     "id": "76c929b4c25096ba9ec29c3ce2c4c38496",
-    "name": "Conditions for welcome message",
+    "name": "welcomemsgpath",
+    "description": "Conditions for welcome message",
     "forceRun": true,
     "contexts": ["customcontext"],
     "permissions": []
@@ -146,7 +151,8 @@ This object defines the volley conditional/response.
 }
 ```
 - id: (string) Unique path id
-- name: (string) Friendly descriptive name
+- name: (string) Friendly name
+- description: (string) Description of the path
 - forceRun: (boolean. optional. Default FALSE) If it is set on TRUE and if condition matches, this volley response will run even if there are other higher priority path being matched. (@TODO when more than one intent matches and at least one of them has forceRun TRUE and both have context volleys… engine should stack conversation topics… start with one and when finished, start with the other)
 - contexts: (list of strings. optional) Adds current custom contexts if the patch matches. (This can be done also with function $context)
 - permissions: (object. optional) Defines which role have access to this node and subsequent child nodes
