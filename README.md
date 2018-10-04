@@ -542,9 +542,9 @@ In this case you can use functions as arguments.
 Ex with Python code with .Flow functions:
 ```
 {"$code": "regex(\"/test/i\", input()) and lowercase(weather(\"california, us\").text) == \"sunny\" and userAge > 18}"
+```
 
-
-### Hibrid definition
+### Hybrid definition
 
 You can do a mix of highlevel language criteria strings with nested object. Can be useful to have a structure with defined purposes.
 Ex:
@@ -644,7 +644,9 @@ Ex:
         
 - {"$gotoAndWait": [*nodeId*]}:  Sets the next context node id, sends all output it has and will stop the bot engine, waiting for new user input.
 
-- {"$callNode": [*nodeId*]: Calls node with nodeId.
+- {"$gotoResponse": [*pathId*]}: This will jump to the specified path and execute its responses.
+
+- {"$callNode": [*nodeId*]: Calls node with nodeId. This is similar to $goto, but in this case the flow control will be returned when function $return is executed or there is an implicit return when there is no more nodes to follow.
 	- nodeId: (string) Node Id to be called. 
 
 - {'$return": []: When a node is called with $callBotNode  or $callNode this function will output all queued content and stop the execution flow and return the flow control to the caller. If there were no previous call, the function will do nothing. 
