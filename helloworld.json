@@ -1,0 +1,29 @@
+{
+  "id": "helloworldbot",
+  "name": "helloworldbot",
+  "description": "Hello World on .Flow v2",
+  "nodes": [
+    {
+      "id": "mainnode",
+      "name": "Main node",
+      "context": [
+        "global"
+      ],
+      "paths": [
+        {
+          "id": "helloworld",
+          "name": "This path will execute always with no conditionals",
+          "conditions": true,
+          "responses": [
+            {
+              "$text": [
+                "Hello World!"
+              ]
+            }
+          ],
+          "exceptions": []
+        }
+      ]
+    }
+  ]
+}
