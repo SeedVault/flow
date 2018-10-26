@@ -57,7 +57,7 @@ This repository is just the beginning of a process, in which we will open source
 ## .Flow v2.0 - Introduction
 
 This document is a draft for the new .Flow specification version 2.0
-.Flow v2 is an intermediate domain-specific intermediate language with some AST components with very powerful instructions set (from now on called as "instructions") to build conversational bots executed by a .Flow v2 virtual machine. 
+.Flow v2 is an intermediate domain-specific language with some AST components with very powerful instructions set to build conversational bots executed by a .Flow v2 virtual machine. 
 It is not expected humans to work on it directly but use it as an intermediate language. High-level human-friendly language compilers can be build to generate .Flow v2 code. Also it is expected to generate .Flow v2 code from other known chatbot languages like ChatScript or AIML.
 This document explains in detail both the syntax and semantics of .Flow and has a full reference for all operations and instructions to be supported by Rhizome.
 
