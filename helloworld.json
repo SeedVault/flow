@@ -12,7 +12,8 @@
       "paths": [
         {
           "id": "helloworld",
-          "name": "This path will execute always with no conditionals",
+          "name": "helloworld",
+          "description": "This path will execute always with no conditionals",
           "conditions": true,
           "responses": [
             {
