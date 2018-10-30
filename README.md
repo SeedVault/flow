@@ -56,7 +56,7 @@ This repository is just the beginning of a process, in which we will open source
 
 ## .Flow v2.0 - Introduction
 
-This document is a draft for the new .Flow specification version 2.0
+This document is a draft for the new .Flow specification version 2.0\
 .Flow v2 is an intermediate domain-specific language with some AST components with very powerful instructions set to build conversational bots executed by a .Flow v2 virtual machine. 
 It is not expected humans to work on it directly but use it as an intermediate language. High-level human-friendly language compilers can be build to generate .Flow v2 code. Also it is expected to generate .Flow v2 code from other known chatbot languages like ChatScript or AIML.
 This document explains in detail both the syntax and semantics of .Flow and has a full reference for all operations and instructions to be supported by Rhizome.
@@ -217,7 +217,7 @@ When instructions returns an object and the developer only needs one attribute o
 }
 ```
 This condition will return TRUE only on rainy days. Note that we need to lower case the return of $weather text as it is capitalized
-Note: if we want to show weather in the response this can be done using the instruction defined in the template engine: {{ weather(‘California’, ‘today’).text }}
+Note: if we want to show weather in the response this can be done using the instruction defined in the template engine: {{ weather('California', 'today').text }}
 
 Easier using case insensitive feat. of regex pattern:
 ```
@@ -236,7 +236,7 @@ Easier using case insensitive feat. of regex pattern:
 
 Most instructions in this list are also available in the output template engine filters and instructions (see in responses > text)
 
-### Boolean operators:
+### Logic operators:
 This operators are fundamental to build a condition object with multiple criteria.
 
 - {"$and": [*arg1, arg2, ...*]}: Boolean AND operator.
